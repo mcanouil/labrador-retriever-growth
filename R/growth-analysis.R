@@ -115,12 +115,13 @@ growth_ggplot <- ggplot(dt) +
 htmlSVG(
   code = print(growth_ggplot),
   width = 8,
-  height = 6
+  height = 8
 )
 
 svglite(filename = here("outputs/growth.svg"), width = 8, height = 6)
 print(growth_ggplot)
 invisible(dev.off())
+
 
 ### Complete =======================================================================================
 message("Success!", appendLF = TRUE)
