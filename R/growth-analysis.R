@@ -79,18 +79,14 @@ growth_ggplot <- ggplot(dt) +
     sigma = 1
   ) +
   # geom_point(aes(colour = id, shape = outlier), size = 1) +
-  with_outer_glow(
-    geom_text_repel(
-      data = ~ .x[!(outlier)][date == max(date)],
-      mapping = aes(colour = id, label = id),
-      nudge_x = 2,
-      direction = "y",
-      min.segment.length = 0,
-      size = 5,
-      hjust = 0
-    ),
-    colour = "#FFFFFF",
-    sigma = 1
+  geom_text_repel(
+    data = ~ .x[!(outlier)][date == max(date)],
+    mapping = aes(colour = id, label = id),
+    nudge_x = 2,
+    direction = "y",
+    min.segment.length = 0,
+    size = 5,
+    hjust = 0
   ) +
   # geom_ribbon(
   #   data = ~ unique(.x[!(outlier), list(date, y, ymin, ymax)]),
