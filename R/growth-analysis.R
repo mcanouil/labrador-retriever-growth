@@ -143,7 +143,7 @@ print(
     labs(
       x = "Date",
       y = "Poids (g)",
-      title = sub("_", " ", dt[id %in% unique(id[(outlier)]), unique(dog_id)])
+      title = gsub("_", " ", dt[id %in% unique(id[(outlier)]), unique(dog_id)])
     )
 )
 invisible(dev.off())
