@@ -123,27 +123,29 @@ print(growth_ggplot)
 invisible(dev.off())
 
 svglite(filename = here("outputs/growth_outlier.svg"), width = 8, height = 6)
-ggplot(dt[id %in% unique(id[(outlier)])]) +
-  aes(x = date, y = weight) +
-  geom_path(data = ~ .x[!(outlier)], colour = "white") +
-  geom_point(aes(colour = outlier), size = 3) +
-  scale_colour_manual(values = c("#FFFFFF", "#B22222")) +
-  theme(legend.position = "none") +
-  scale_x_date(
-    date_breaks = "1 week",
-    date_labels = "%d/%m<br>%Y",
-    expand = expansion(add = c(0, 4))
-  ) +
-  scale_y_continuous(
-    labels = number_format(big.mark = ","),
-    expand = expansion(c(0, 0.25)),
-    limits = c(0, NA)
-  ) +
-  labs(
-    x = "Date",
-    y = "Poids (g)",
-    title = sub("_", " ", dt[id %in% unique(id[(outlier)]), unique(dog_id)])
-  )
+print(
+  ggplot(dt[id %in% unique(id[(outlier)])]) +
+    aes(x = date, y = weight) +
+    geom_path(data = ~ .x[!(outlier)], colour = "white") +
+    geom_point(aes(colour = outlier), size = 3) +
+    scale_colour_manual(values = c("#FFFFFF", "#B22222")) +
+    theme(legend.position = "none") +
+    scale_x_date(
+      date_breaks = "1 week",
+      date_labels = "%d/%m<br>%Y",
+      expand = expansion(add = c(0, 4))
+    ) +
+    scale_y_continuous(
+      labels = number_format(big.mark = ","),
+      expand = expansion(c(0, 0.25)),
+      limits = c(0, NA)
+    ) +
+    labs(
+      x = "Date",
+      y = "Poids (g)",
+      title = sub("_", " ", dt[id %in% unique(id[(outlier)]), unique(dog_id)])
+    )
+)
 invisible(dev.off())
 
 
