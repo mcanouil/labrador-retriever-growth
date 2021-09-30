@@ -1,4 +1,4 @@
 # Labrador Retriever Growth
 
 
-![Labrador Retriever weight growth](growth.svg)
+![Labrador Retriever weight growth](outputs/growth.svg)
