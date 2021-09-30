@@ -13,6 +13,7 @@ suppressPackageStartupMessages({
   library(patchwork)
   library(scales)
   library(ggrepel)
+  library(ggfx)
   library(data.table)
   library(readxl)
   library(showtext)
@@ -72,16 +73,24 @@ dt <- melt(
 
 growth_ggplot <- ggplot(dt) +
   aes(x = date, y = weight) +
-  geom_path(data = ~ .x[!(outlier)], mapping = aes(colour = id)) +
-  geom_point(aes(colour = id, shape = outlier), size = 1) +
-  geom_text_repel(
-    data = ~ .x[!(outlier)][date == max(date)],
-    mapping = aes(colour = id, label = id),
-    nudge_x = 2,
-    direction = "y",
-    min.segment.length = 0,
-    size = 4,
-    hjust = 0
+  with_outer_glow(
+    geom_path(data = ~ .x[!(outlier)], mapping = aes(colour = id)),
+    colour = "#FFFFFF",
+    sigma = 1
+  ) +
+  # geom_point(aes(colour = id, shape = outlier), size = 1) +
+  with_outer_glow(
+    geom_text_repel(
+      data = ~ .x[!(outlier)][date == max(date)],
+      mapping = aes(colour = id, label = id),
+      nudge_x = 2,
+      direction = "y",
+      min.segment.length = 0,
+      size = 5,
+      hjust = 0
+    ),
+    colour = "#FFFFFF",
+    sigma = 1
   ) +
   # geom_ribbon(
   #   data = ~ unique(.x[!(outlier), list(date, y, ymin, ymax)]),
@@ -126,8 +135,16 @@ svglite(filename = here("outputs/growth_outlier.svg"), width = 8, height = 6)
 print(
   ggplot(dt[id %in% unique(id[(outlier)])]) +
     aes(x = date, y = weight) +
-    geom_path(data = ~ .x[!(outlier)], colour = "white") +
-    geom_point(aes(colour = outlier), size = 3) +
+    with_outer_glow(
+      geom_path(data = ~ .x[!(outlier)], colour = "white"),
+      colour = "#FFFFFF",
+      sigma = 1
+    ) +
+    with_outer_glow(
+      geom_point(aes(colour = outlier), size = 3),
+      colour = "#FFFFFF",
+      sigma = 1
+    ) +
     scale_colour_manual(values = c("#FFFFFF", "#B22222")) +
     theme(legend.position = "none") +
     scale_x_date(
