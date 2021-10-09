@@ -33,10 +33,10 @@ on:
       - README.Rmd
   workflow_dispatch:
 
-name: targets
+name: Render README.Rmd
 
 jobs:
-  targets:
+  render-readme:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
