@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
   echo = FALSE,
   message = FALSE
 )
-dir.create("media", showWarnings = FALSE)
+dir.create(knitr::opts_chunk$get("fig.path"), showWarnings = FALSE)
 
 library(targets)
 tar_unscript()
