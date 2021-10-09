@@ -52,7 +52,7 @@ jobs:
           sudo apt-get install libcurl4-openssl-dev
           sudo apt-get install libssl-dev
           sudo apt-get install libzmq3-dev
-          sudo apt-get install libmagick++-dev libharfbuzz-dev libfribidi-dev libudunits2-dev
+          sudo apt-get install libmagick++-dev libharfbuzz-dev libfribidi-dev libudunits2-dev libgdal-dev
 
       - name: Cache packages
         uses: actions/cache@v1
