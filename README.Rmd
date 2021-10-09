@@ -27,7 +27,7 @@ pkgs <- c(
   "svglite", "ggplot2", "ggtext", "patchwork", "scales",
   "ggrepel", "ggfx", "data.table", "readxl", "showtext"
 )
-# renv::snapshot(packages = pkgs)
+# renv::snapshot(packages = c("rmarkdown", pkgs))
 invisible(sapply(
   X = pkgs,
   FUN = library, character.only = TRUE, quietly = TRUE
