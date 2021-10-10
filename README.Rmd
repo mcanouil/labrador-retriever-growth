@@ -6,9 +6,8 @@ output: github_document
 
 # Labrador Retriever Growth
 
-
 <!-- badges: start -->
-[![targets](https://github.com/mcanouil/labrador-retriever-growth/actions/workflows/render-readme.yaml/badge.svg)](https://github.com/mcanouil/labrador-retriever-growth/actions/workflows/render-readme.yaml)
+[![Render README](https://github.com/mcanouil/labrador-retriever-growth/actions/workflows/render-readme.yaml/badge.svg)](https://github.com/mcanouil/labrador-retriever-growth/actions/workflows/render-readme.yaml)
 <!-- badges: end -->
 
 ```{r setup, include = FALSE}

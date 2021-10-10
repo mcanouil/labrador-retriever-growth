@@ -33,7 +33,7 @@ on:
       - README.Rmd
   workflow_dispatch:
 
-name: Render README.Rmd
+name: Render README
 
 jobs:
   render-readme:
