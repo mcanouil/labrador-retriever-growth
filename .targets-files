@@ -1,5 +1,5 @@
 .targets-files
-README.md
+.targets-runs/
 _targets.R
 _targets/meta/.gitignore
 _targets/meta/meta
@@ -12,4 +12,3 @@ _targets_r/globals/example-globals.R
 _targets_r/targets/growth-plot.R
 _targets_r/targets/raw-data.R
 _targets_r/targets/tidy-data.R
-media/growth-1.svg

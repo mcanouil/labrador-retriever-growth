@@ -1,6 +1,6 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|iteration|parent|children|seconds|warnings|error
 font|object|cd0395e927fdb96e||||||||||||||
 theme_mc|function|210e9bc68abd73f3||||||||||||||
-raw_data|stem|166d6f548568b8c9|30a8b09bf062dff4|5d9d43dee7ee0f7c|-979620141||t18910.6782278857s|46d99e55c387943d|1044|rds|vector|||0.204|NAs introduced by coercion|
-tidy_data|stem|f03a62c3b47a8c1f|3218389e9595d6fb|2346e5549963177f|-1094153249||t18910.6782283024s|0c6095799c4259aa|1927|rds|vector|||0.015||
-growth_plot|stem|bdbfb26c56372191|743d43c35fa5c4c5|b6b5f01b05abe972|-854542501||t18910.6782297839s|fbe4b1c691a805a5|128051|rds|vector|||0.029||
+raw_data|stem|166d6f548568b8c9|30a8b09bf062dff4|5d9d43dee7ee0f7c|-979620141||t18910.697971325s|46d99e55c387943d|1044|rds|vector|||0.204|NAs introduced by coercion|
+tidy_data|stem|f03a62c3b47a8c1f|3218389e9595d6fb|2346e5549963177f|-1094153249||t18910.697971325s|0c6095799c4259aa|1927|rds|vector|||0.015||
+growth_plot|stem|bdbfb26c56372191|743d43c35fa5c4c5|b6b5f01b05abe972|-854542501||t18910.697971325s|fbe4b1c691a805a5|128051|rds|vector|||0.029||

@@ -122,12 +122,6 @@ tar_target(growth_plot, {
       size = 5,
       hjust = 0
     ) +
-    # geom_ribbon(
-    #   data = ~ unique(.x[!(outlier), list(date, y, ymin, ymax)]),
-    #   mapping = aes(x = date, y = y, ymin = ymin, ymax = ymax),
-    #   fill = "#FFFFFF80",
-    #   inherit.aes = FALSE
-    # ) +
     geom_path(
       data = ~ unique(.x[!(outlier), list(date, y, ymin, ymax)]),
       mapping = aes(x = date, y = y),

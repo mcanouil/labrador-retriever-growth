@@ -1,7 +1,4 @@
 name|type|parent|branches|progress
-raw_data|stem|raw_data|0|started
-raw_data|stem|raw_data|0|built
-tidy_data|stem|tidy_data|0|started
-tidy_data|stem|tidy_data|0|built
-growth_plot|stem|growth_plot|0|started
-growth_plot|stem|growth_plot|0|built
+raw_data|stem|raw_data|0|skipped
+tidy_data|stem|tidy_data|0|skipped
+growth_plot|stem|growth_plot|0|skipped
