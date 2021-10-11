@@ -155,6 +155,7 @@ tar_make()
 ```{r growth}
 #| fig.width = 8,
 #| fig.height = 6,
+#| fig.alt = "Weight growth curves from birth for eleven Labrador Retriever"
 #| dev = "svglite"
 
 tar_read(growth_plot)
