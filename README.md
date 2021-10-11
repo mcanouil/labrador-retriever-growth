@@ -5,9 +5,9 @@
 
 <!-- badges: start -->
 
+[![License](https://img.shields.io/github/license/mcanouil/labrador-retriever-growth)](LICENSE)
 [![Render
 README](https://github.com/mcanouil/labrador-retriever-growth/actions/workflows/render-readme.yaml/badge.svg)](https://github.com/mcanouil/labrador-retriever-growth/actions/workflows/render-readme.yaml)
-[![License](https://img.shields.io/github/license/mcanouil/labrador-retriever-growth)](LICENSE)
 <!-- badges: end -->
 
 ![](media/growth-1.svg)<!-- -->
