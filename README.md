@@ -10,4 +10,5 @@
 README](https://github.com/mcanouil/labrador-retriever-growth/actions/workflows/render-readme.yaml/badge.svg)](https://github.com/mcanouil/labrador-retriever-growth/actions/workflows/render-readme.yaml)
 <!-- badges: end -->
 
-![](media/growth-1.svg)<!-- -->
+![Weight growth curves from birth for eleven Labrador
+Retriever](media/growth-1.svg)
