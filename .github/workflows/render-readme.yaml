@@ -24,14 +24,11 @@
 # SOFTWARE.
 
 on:
-  schedule:
-    - cron: '0 0 * * *'
   push:
     branches: [main, master]
     paths:
       - data/**
       - README.Rmd
-  workflow_dispatch:
 
 name: Render README
 
