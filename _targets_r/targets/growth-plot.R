@@ -4,12 +4,12 @@ tar_target(growth_plot, {
     {
       if (should_glow) {
         with_outer_glow(
-          geom_path(data = ~ .x[!(outlier)], mapping = aes(colour = id)),
+          geom_path(mapping = aes(colour = id)),
           colour = "#FFFFFF",
           sigma = 1
         )
       } else {
-        geom_path(data = ~ .x[!(outlier)], mapping = aes(colour = id), size = 0.75)
+        geom_path(mapping = aes(colour = id), size = 0.75)
       } 
     } +
     # geom_point(aes(colour = id, shape = outlier), size = 1) +

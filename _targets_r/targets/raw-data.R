@@ -12,5 +12,11 @@ tar_target(raw_data, {
     )[j = -c(1, 2)], 2, function(x) paste(c(sprintf("%02d", as.numeric(x[7])), x[9:10]), collapse = "_"))))
   )[
     j = lapply(.SD, function(x) as.numeric(sub("GR$", "", x)))
+  ][
+    j = day := as.integer(sub("naissance", "0", sub(".* ", "", read_excel(
+      path = here("data/nash-nora-2021.xls"),
+      col_names = FALSE,
+      range = "A11:A68"
+    )[[1]])))
   ]
 })

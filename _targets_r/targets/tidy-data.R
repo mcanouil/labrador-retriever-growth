@@ -3,7 +3,9 @@ tar_target(tidy_data, {
     data = raw_data[
       j = .SD[rowSums(is.na(.SD)) == 0]
     ][
-      j = date := as.Date("2021-09-06") + seq_len(.N) - 1
+      j = date := as.Date("2021-09-06") + day
+    ][
+      j = day := NULL
     ],
     id.vars = "date",
     value.name = "weight",
