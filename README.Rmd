@@ -79,6 +79,12 @@ tar_target(raw_data, {
     )[j = -c(1, 2)], 2, function(x) paste(c(sprintf("%02d", as.numeric(x[7])), x[9:10]), collapse = "_"))))
   )[
     j = lapply(.SD, function(x) as.numeric(sub("GR$", "", x)))
+  ][
+    j = day := as.integer(sub("naissance", "0", sub(".* ", "", read_excel(
+      path = here("data/nash-nora-2021.xls"),
+      col_names = FALSE,
+      range = "A11:A68"
+    )[[1]])))
   ]
 })
 ```
@@ -89,7 +95,9 @@ tar_target(tidy_data, {
     data = raw_data[
       j = .SD[rowSums(is.na(.SD)) == 0]
     ][
-      j = date := as.Date("2021-09-06") + seq_len(.N) - 1
+      j = date := as.Date("2021-09-06") + day
+    ][
+      j = day := NULL
     ],
     id.vars = "date",
     value.name = "weight",
@@ -119,12 +127,12 @@ tar_target(growth_plot, {
     {
       if (should_glow) {
         with_outer_glow(
-          geom_path(data = ~ .x[!(outlier)], mapping = aes(colour = id)),
+          geom_path(mapping = aes(colour = id)),
           colour = "#FFFFFF",
           sigma = 1
         )
       } else {
-        geom_path(data = ~ .x[!(outlier)], mapping = aes(colour = id), size = 0.75)
+        geom_path(mapping = aes(colour = id), size = 0.75)
       } 
     } +
     # geom_point(aes(colour = id, shape = outlier), size = 1) +
