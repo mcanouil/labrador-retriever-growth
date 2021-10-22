@@ -16,6 +16,12 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "media/",
+  fig.process = function(path) {
+    new_path <- sub("-1\\.", ".", path)
+    file.copy(path, new_path, overwrite = TRUE)
+    on.exit(unlink(normalizePath(path)))
+    new_path
+  },
   dev = "svg",
   echo = FALSE,
   message = FALSE
@@ -49,6 +55,8 @@ tar_option_set(
     "ggrepel", "ggfx", "data.table", "readxl", "showtext"
   )
 )
+
+should_glow <- FALSE
 
 font <- "Alegreya Sans"
 sysfonts::font_add_google(font, font, regular.wt = 300)
@@ -108,11 +116,17 @@ tar_target(tidy_data, {
 tar_target(growth_plot, {
   ggplot(tidy_data) +
     aes(x = date, y = weight) +
-    with_outer_glow(
-      geom_path(data = ~ .x[!(outlier)], mapping = aes(colour = id)),
-      colour = "#FFFFFF",
-      sigma = 1
-    ) +
+    {
+      if (should_glow) {
+        with_outer_glow(
+          geom_path(data = ~ .x[!(outlier)], mapping = aes(colour = id)),
+          colour = "#FFFFFF",
+          sigma = 1
+        )
+      } else {
+        geom_path(data = ~ .x[!(outlier)], mapping = aes(colour = id), size = 0.75)
+      } 
+    } +
     # geom_point(aes(colour = id, shape = outlier), size = 1) +
     geom_text_repel(
       data = ~ .x[!(outlier)][date == max(date)],
@@ -127,7 +141,8 @@ tar_target(growth_plot, {
       data = ~ unique(.x[!(outlier), list(date, y, ymin, ymax)]),
       mapping = aes(x = date, y = y),
       colour = "#FFFFFF",
-      linetype = 2,
+      linetype = 2, 
+      size = 0.75,
       inherit.aes = FALSE
     ) +
     scale_x_date(
@@ -143,8 +158,12 @@ tar_target(growth_plot, {
     scale_shape_manual(values = c(16, 4)) +
     coord_cartesian(ylim = range(c(0, tidy_data[!(outlier), weight]))) +
     labs(x = NULL, y = "Weight (g)") +
-    theme(legend.position = "none") +
-    facet_grid(rows = vars(colour), cols = vars(sex))
+    theme(  
+      legend.position = "none", 
+      panel.grid.major = element_line(size = ggplot2::rel(0.5)), 
+      panel.grid.minor = element_line(size = ggplot2::rel(0.25))
+    ) +
+    facet_grid(rows = vars(paste(colour, sex)))
 })
 ```
 
@@ -154,7 +173,7 @@ tar_make()
 
 ```{r growth}
 #| fig.width = 8,
-#| fig.height = 6,
+#| fig.height = 11.5,
 #| fig.cap = "Weight growth curves from birth for eleven Labrador Retriever",
 #| dev = "svglite"
 

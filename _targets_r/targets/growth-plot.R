@@ -1,11 +1,17 @@
 tar_target(growth_plot, {
   ggplot(tidy_data) +
     aes(x = date, y = weight) +
-    with_outer_glow(
-      geom_path(data = ~ .x[!(outlier)], mapping = aes(colour = id)),
-      colour = "#FFFFFF",
-      sigma = 1
-    ) +
+    {
+      if (should_glow) {
+        with_outer_glow(
+          geom_path(data = ~ .x[!(outlier)], mapping = aes(colour = id)),
+          colour = "#FFFFFF",
+          sigma = 1
+        )
+      } else {
+        geom_path(data = ~ .x[!(outlier)], mapping = aes(colour = id), size = 0.75)
+      } 
+    } +
     # geom_point(aes(colour = id, shape = outlier), size = 1) +
     geom_text_repel(
       data = ~ .x[!(outlier)][date == max(date)],
@@ -20,7 +26,8 @@ tar_target(growth_plot, {
       data = ~ unique(.x[!(outlier), list(date, y, ymin, ymax)]),
       mapping = aes(x = date, y = y),
       colour = "#FFFFFF",
-      linetype = 2,
+      linetype = 2, 
+      size = 0.75,
       inherit.aes = FALSE
     ) +
     scale_x_date(
@@ -36,6 +43,10 @@ tar_target(growth_plot, {
     scale_shape_manual(values = c(16, 4)) +
     coord_cartesian(ylim = range(c(0, tidy_data[!(outlier), weight]))) +
     labs(x = NULL, y = "Weight (g)") +
-    theme(legend.position = "none") +
-    facet_grid(rows = vars(colour), cols = vars(sex))
+    theme(  
+      legend.position = "none", 
+      panel.grid.major = element_line(size = ggplot2::rel(0.5)), 
+      panel.grid.minor = element_line(size = ggplot2::rel(0.25))
+    ) +
+    facet_grid(rows = vars(paste(colour, sex)))
 })

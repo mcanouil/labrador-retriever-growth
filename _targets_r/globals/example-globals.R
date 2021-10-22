@@ -6,6 +6,8 @@ tar_option_set(
   )
 )
 
+should_glow <- FALSE
+
 font <- "Alegreya Sans"
 sysfonts::font_add_google(font, font, regular.wt = 300)
 showtext::showtext_auto()
