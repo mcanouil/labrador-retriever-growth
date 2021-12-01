@@ -242,7 +242,7 @@ tar_read(growth_plot)
 
 lp <- tar_read(growth_plot_id)
 for (p in lp) {
-  cat(sprintf("\n## %s\n\n", p$labels$title))
+  cat(sprintf("\n\n## %s\n\n", p$labels$title))
   print(p)
 }
 ```

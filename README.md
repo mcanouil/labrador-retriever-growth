@@ -16,34 +16,54 @@ Retriever](media/growth.svg)
 ## SAM
 
 ![Weight growth curves from birth for eleven Labrador
-Retriever](media/growth-id-1.svg) ## SWANN
+Retriever](media/growth-id-1.svg)
+
+## SWANN
 
 ![Weight growth curves from birth for eleven Labrador
-Retriever](media/growth-id-2.svg) ## STARLIGHT
+Retriever](media/growth-id-2.svg)
+
+## STARLIGHT
 
 ![Weight growth curves from birth for eleven Labrador
-Retriever](media/growth-id-3.svg) ## SCOTT
+Retriever](media/growth-id-3.svg)
+
+## SCOTT
 
 ![Weight growth curves from birth for eleven Labrador
-Retriever](media/growth-id-4.svg) ## SHEREKHAN
+Retriever](media/growth-id-4.svg)
+
+## SHEREKHAN
 
 ![Weight growth curves from birth for eleven Labrador
-Retriever](media/growth-id-5.svg) ## SAGA
+Retriever](media/growth-id-5.svg)
+
+## SAGA
 
 ![Weight growth curves from birth for eleven Labrador
-Retriever](media/growth-id-6.svg) ## SAMBA
+Retriever](media/growth-id-6.svg)
+
+## SAMBA
 
 ![Weight growth curves from birth for eleven Labrador
-Retriever](media/growth-id-7.svg) ## SALY
+Retriever](media/growth-id-7.svg)
+
+## SALY
 
 ![Weight growth curves from birth for eleven Labrador
-Retriever](media/growth-id-8.svg) ## SCARLETTE
+Retriever](media/growth-id-8.svg)
+
+## SCARLETTE
 
 ![Weight growth curves from birth for eleven Labrador
-Retriever](media/growth-id-9.svg) ## SEASEX AND SUN
+Retriever](media/growth-id-9.svg)
+
+## SEASEX AND SUN
 
 ![Weight growth curves from birth for eleven Labrador
-Retriever](media/growth-id-10.svg) ## SOCRATE
+Retriever](media/growth-id-10.svg)
+
+## SOCRATE
 
 ![Weight growth curves from birth for eleven Labrador
 Retriever](media/growth-id-11.svg)
