@@ -227,7 +227,7 @@ tar_make()
 #| fig.width = 8,
 #| fig.height = 11.5,
 #| fig.cap = "Weight growth curves from birth for eleven Labrador Retriever",
-#| dev = c("svglite", "ragg")
+#| dev = c("svglite", "ragg_png")
 
 tar_read(growth_plot)
 ```
@@ -236,13 +236,13 @@ tar_read(growth_plot)
 #| fig.width = 8,
 #| fig.height = 6,
 #| fig.cap = "Weight growth curves from birth for eleven Labrador Retriever",
-#| dev = c("svglite", "ragg"),
+#| dev = c("svglite", "ragg_png"),
 #| fig.process = identity,
 #| results = "asis"
 
 lp <- tar_read(growth_plot_id)
 for (p in lp) {
-  cat(sprintf("## %s\n\n", p$labels$title))
+  cat(sprintf("\n## %s\n\n", p$labels$title))
   print(p)
 }
 ```
