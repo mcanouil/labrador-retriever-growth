@@ -2,6 +2,7 @@ name|type|data|command|depend|seed|path|time|size|bytes|format|iteration|parent|
 font|object|cd0395e927fdb96e||||||||||||||
 should_glow|object|df161ddba3dacc9e||||||||||||||
 theme_mc|function|210e9bc68abd73f3||||||||||||||
-raw_data|stem|8405bc1b592db22e|7191b8d4ee4e1fc5|b6aae9336be0947a|-979620141||t18922.407638988s|3b3b488a19f67e1b|1619|rds|vector|||0.727|NAs introduced by coercion|
-tidy_data|stem|9521e834ba09fe79|9c2fada518a222c3|e4208eafcc60636c|-1094153249||t18922.4076397287s|fefb002adc6194b0|2728|rds|vector|||0.049||
-growth_plot|stem|a737b0996b30e0f2|ff6258fcacad92f9|8fd67b2416336d7c|-854542501||t18922.4076409786s|fa95538e32a8d498|125928|rds|vector|||0.03||
+raw_data|stem|625eb19e16ed23eb|49dab879386a01ce|75a031e445650f34|-979620141||t18962.5783609576s|4df101b83aaca5e8|2011|rds|vector|||0.244|NAs introduced by coercion|
+tidy_data|stem|d599cec28fccbd2a|9c2fada518a222c3|f40727a559588b33|-1094153249||t18962.5783621151s|9b790408bcfcd556|3432|rds|vector|||0.074||
+growth_plot_id|stem|a5056fc1ae511839|3bf740d7c7383450|628d3f0e25648843|-806467037||t18962.5783643373s|87780b51e6329fb3|169214|rds|vector|||0.086||
+growth_plot|stem|edaea25bb1275406|5c2113c71271c6f4|ccaf80839b90d35b|-854542501||t18962.5783656336s|b5205d6982d07b4a|129868|rds|vector|||0.03||

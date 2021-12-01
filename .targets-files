@@ -6,9 +6,11 @@ _targets/meta/meta
 _targets/meta/process
 _targets/meta/progress
 _targets/objects/growth_plot
+_targets/objects/growth_plot_id
 _targets/objects/raw_data
 _targets/objects/tidy_data
 _targets_r/globals/example-globals.R
+_targets_r/targets/growth-plot-id.R
 _targets_r/targets/growth-plot.R
 _targets_r/targets/raw-data.R
 _targets_r/targets/tidy-data.R

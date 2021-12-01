@@ -9,7 +9,7 @@ tar_target(raw_data, {
     ),
     old = sub(" ", "", toupper(apply(setDT(
       read_excel(here("data/nash-nora-2021.xls"), col_names = FALSE, n_max = 10)
-    )[j = -c(1, 2)], 2, function(x) paste(c(sprintf("%02d", as.numeric(x[7])), x[9:10]), collapse = "_"))))
+    )[j = -c(1, 2)], 2, function(x) paste(c(toupper(x[2]), x[9:10]), collapse = "_"))))
   )[
     j = lapply(.SD, function(x) as.numeric(sub("GR$", "", x)))
   ][

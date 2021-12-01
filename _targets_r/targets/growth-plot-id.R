@@ -1,27 +1,6 @@
-tar_target(growth_plot, {
-  ggplot(tidy_data) +
+tar_target(growth_plot_id, {
+  p <- ggplot(tidy_data) +
     aes(x = date, y = weight) +
-    {
-      if (should_glow) {
-        with_outer_glow(
-          geom_path(mapping = aes(colour = id)),
-          colour = "#FFFFFF",
-          sigma = 1
-        )
-      } else {
-        geom_path(mapping = aes(colour = id), size = 0.75)
-      } 
-    } +
-    # geom_point(aes(colour = id, shape = outlier), size = 1) +
-    geom_text_repel(
-      data = ~ .x[!(outlier)][date == max(date)],
-      mapping = aes(colour = id, label = id),
-      nudge_x = 4,
-      direction = "y",
-      min.segment.length = 0,
-      size = 4,
-      hjust = 0
-    ) +
     geom_path(
       data = ~ unique(.x[!(outlier), list(date, y, ymin, ymax)]),
       mapping = aes(x = date, y = y),
@@ -33,7 +12,7 @@ tar_target(growth_plot, {
     scale_x_date(
       date_breaks = "1 week",
       date_labels = "%d/%m<br>%Y",
-      expand = expansion(add = c(0, 7 * 4))
+      expand = expansion(add = c(0, 7 / 2))
     ) +
     scale_y_continuous(
       labels = number_format(big.mark = ",", scale = 1e-3),
@@ -47,6 +26,15 @@ tar_target(growth_plot, {
       legend.position = "none", 
       panel.grid.major = element_line(size = ggplot2::rel(0.5)), 
       panel.grid.minor = element_line(size = ggplot2::rel(0.25))
-    ) +
-    facet_grid(rows = vars(paste(colour, sex)))
+    )
+
+  lapply(
+    X = unique(tidy_data[["id"]]),
+    FUN = function(idog) {
+      p +
+      geom_path(data = ~.x[id %in% idog], mapping = aes(colour = id), size = 1) +
+      geom_point(data = ~.x[id %in% idog], mapping = aes(colour = id, shape = outlier), size = 2) +
+      labs(title = idog)
+    }
+  )
 })
