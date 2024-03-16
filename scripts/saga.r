@@ -1,11 +1,11 @@
-library("languageserver")
-library("httpgd")
+# library("languageserver")
+# library("httpgd")
 library("ggplot2")
 library("ggtext")
 library("readr")
 library("sysfonts")
 library("showtext")
-library("jsonlite")
+library("svglite")
 
 theme_coeos <- function(
   base_size = 11,
@@ -177,12 +177,14 @@ theme_update(
 )
 update_geom_defaults("point", list(colour = theme_get()$line$colour))
 
-ggplot(read_csv("data/saga.csv", show_col_types = FALSE)) +
+saga_df <- read_csv("data/saga.csv", show_col_types = FALSE)
+
+saga <- ggplot(saga_df) +
   aes(x = date, y = weight) +
   geom_path(linewidth = 0.75, colour = "#ffffff") +
-  geom_point(size = 1.5, shape = 21, colour = "#333333", fill = "#ffffff") +
+  geom_point(size = 3, shape = 21, colour = "#333333", fill = "#ffffff") +
   scale_x_date(
-    date_breaks = "3 month",
+    breaks = seq(min(saga_df[["date"]]), max(saga_df[["date"]]), by = "3 months"),
     date_labels = "%d/%m<br>%Y",
     expand = expansion(add = c(0, 7 * 4))
   ) +
@@ -200,3 +202,7 @@ ggplot(read_csv("data/saga.csv", show_col_types = FALSE)) +
     panel.grid.major.x = element_blank(),
     panel.grid.minor.x = element_blank()
   )
+
+svglite(filename = "media/saga.svg", width = 8, height = 4.5)
+print(saga)
+invisible(dev.off())
