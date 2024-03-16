@@ -48,6 +48,7 @@ jobs:
             any::sysfonts
             any::showtext
             any::svglite
+            any::jsonlite
       
       - name: Render figures
         shell: bash
