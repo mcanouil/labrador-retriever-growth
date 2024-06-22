@@ -71,4 +71,4 @@ jobs:
       - name: Merge Pull Request
         shell: bash
         run: |
-          gh pr merge --auto --squash --delete-branch
+          gh pr merge --auto --squash --delete-branch --label "Type: CI/CD :robot:"
