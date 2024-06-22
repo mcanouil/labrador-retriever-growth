@@ -71,7 +71,7 @@ theme_coeos <- function(
     axis.ticks.length.y = NULL,
     axis.ticks.length.y.left = NULL,
     axis.ticks.length.y.right = NULL,
-    axis.line = ggplot2::element_blank(),
+    axis.line = ggplot2::element_line(colour = bc[3]),
     axis.line.x = NULL,
     axis.line.x.top = NULL,
     axis.line.x.bottom = NULL,
@@ -89,9 +89,7 @@ theme_coeos <- function(
     legend.key.height = NULL,
     legend.key.width = NULL,
     legend.text = ggplot2::element_text(size = ggplot2::rel(0.8)),
-    legend.text.align = NULL,
     legend.title = ggplot2::element_text(hjust = 0),
-    legend.title.align = NULL,
     legend.position = "right",
     legend.direction = NULL,
     legend.justification = "center",
@@ -102,7 +100,7 @@ theme_coeos <- function(
     legend.box.spacing = ggplot2::unit(2 * half_line, "pt"),
 
     panel.background = ggplot2::element_rect(fill = bc[1], colour = NA),
-    panel.border = ggplot2::element_rect(fill = NA, colour = bc[3], linewidth = 0.5, linetype = "solid"),
+    panel.border = ggplot2::element_blank(),
     panel.spacing = ggplot2::unit(half_line, "pt"),
     panel.spacing.x = NULL,
     panel.spacing.y = NULL,
@@ -165,7 +163,7 @@ theme_coeos <- function(
 
 font_add_google("Alegreya Sans", "Alegreya Sans", regular.wt = 300)
 showtext_auto()
-theme_set(theme_coeos(base_size = 18, base_family = "Alegreya Sans"))
+theme_set(theme_coeos(base_size = 12, base_family = "Alegreya Sans"))
 theme_update(
   plot.title = element_markdown(),
   plot.subtitle = element_markdown(face = "italic"),
@@ -180,23 +178,32 @@ update_geom_defaults("point", list(colour = theme_get()$line$colour))
 saga_df <- read_csv("data/saga.csv", show_col_types = FALSE)
 
 saga <- ggplot(saga_df) +
-  aes(x = date, y = weight) +
-  geom_path(linewidth = 0.75, colour = "#ffffff") +
-  geom_point(size = 3, shape = 21, colour = "#333333", fill = "#ffffff") +
+  aes(x = date, y = weight, colour = "Saga", fill = "Saga") +
+  geom_path(linewidth = 1) +
+  geom_point(size = 2.5, shape = 21, colour = "#333333") +
   scale_x_date(
     breaks = seq(min(saga_df[["date"]]), max(saga_df[["date"]]), by = "3 months"),
-    date_labels = "%d/%m<br>%Y",
+    date_labels = "%B<br>%Y",
     expand = expansion(add = c(0, 7 * 4))
   ) +
   scale_y_continuous(
     limits = c(0, NA),
     expand = expansion(c(0, 0.1))
   ) +
-  scale_colour_viridis_d(begin = 0.50, end = 1) +
+  scale_colour_manual(values = c("#ffffff")) +
+  scale_fill_manual(values = c("#ffffff")) +
   scale_shape_manual(values = c(16, 4)) +
-  labs(x = NULL, y = "Weight (kg)") +
+  labs(x = NULL, y = "Weight (kg)", colour = NULL, fill = NULL) +
   theme(
-    legend.position = "none",
+    legend.position = "inside",
+    legend.position.inside = c(0.99, 0.01),
+    legend.justification = c("right", "bottom"),
+    legend.box.just = "right",
+    legend.margin = margin(6, 6, 6, 6),
+    legend.text = element_text(face = "bold"),
+    legend.key = element_rect(colour = NA),
+    legend.key.width = unit(2, "lines"),
+    legend.background = element_blank(),
     panel.grid.major = element_line(linewidth = rel(0.5)),
     panel.grid.minor = element_line(linewidth = rel(0.25)),
     panel.grid.major.x = element_blank(),
@@ -206,3 +213,5 @@ saga <- ggplot(saga_df) +
 svglite(filename = "media/saga.svg", width = 8, height = 4.5)
 print(saga)
 invisible(dev.off())
+
+print(saga)
