@@ -182,7 +182,7 @@ saga <- ggplot(saga_df) +
   geom_path(linewidth = 1) +
   geom_point(size = 2.5, shape = 21, colour = "#333333") +
   scale_x_date(
-    breaks = seq(min(saga_df[["date"]]), max(saga_df[["date"]]), by = "3 months"),
+    breaks = seq(min(saga_df[["date"]]), max(saga_df[["date"]]), by = "6 months"),
     date_labels = "%B<br>%Y",
     expand = expansion(add = c(0, 7 * 4))
   ) +
