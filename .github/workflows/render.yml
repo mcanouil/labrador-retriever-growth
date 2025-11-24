@@ -15,7 +15,7 @@ jobs:
       BRANCH: ci/render-figures
       COMMIT: "ci: automatic figure rendering"
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Git Config
         shell: bash
